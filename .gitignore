@@ -1,0 +1,8 @@
+.DS_Store
+vendor
+.idea
+images/
+/images/
+/application/config/database.php
+/application/config/config.php
+docker/mysql/mysql-data/
