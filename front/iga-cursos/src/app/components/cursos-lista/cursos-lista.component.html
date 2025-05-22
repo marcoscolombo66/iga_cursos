@@ -1,0 +1,29 @@
+<div class="container mt-4">
+  <h1 class="mb-4">Cursos Gastronómicos IGA</h1>
+
+  <div *ngIf="cargando" class="text-center">
+    <p>Cargando cursos...</p>
+  </div>
+
+  <div *ngIf="error" class="alert alert-danger">
+    {{ error }}
+  </div>
+
+  <div class="row">
+    <div *ngFor="let curso of cursos" class="col-md-4 mb-4">
+      <div class="card h-100">
+        <img [src]="curso.imagen" class="card-img-top" alt="{{ curso.nombre }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ curso.nombre }}</h5>
+          <p class="card-text">{{ curso.descripcion }}</p>
+          <p class="card-text"><strong>Precio: ${{ curso.precio }}</strong></p>
+          <a [routerLink]="['/curso', curso.idCurso]" class="btn btn-primary">Ver detalles</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="cursos.length === 0 && !cargando" class="text-center mt-4">
+    <p>No hay cursos disponibles en este momento.</p>
+  </div>
+</div> 

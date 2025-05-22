@@ -1,0 +1,53 @@
+<div class="container mt-4">
+  <div *ngIf="cargando" class="text-center">
+    <p>Cargando...</p>
+  </div>
+
+  <div *ngIf="error" class="alert alert-danger">
+    {{ error }}
+  </div>
+
+  <div *ngIf="mensajeExito" class="alert alert-success">
+    {{ mensajeExito }}
+  </div>
+
+  <div *ngIf="curso && !cargando" class="row">
+    <div class="col-md-6">
+      <img [src]="curso.imagen" class="img-fluid rounded" alt="{{ curso.nombre }}">
+    </div>
+    <div class="col-md-6">
+      <h1>{{ curso.nombre }}</h1>
+      <p class="lead">{{ curso.descripcion }}</p>
+      <hr>
+      <div class="mb-3">
+        <h4>Detalles del curso</h4>
+        <p>{{ curso.detalle }}</p>
+      </div>
+      <h3 class="mb-4">Precio: ${{ curso.precio }}</h3>
+
+      <h4>Completá tus datos para comprar</h4>
+      <form (ngSubmit)="comprarCurso()">
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre completo</label>
+          <input type="text" class="form-control" id="nombre" [(ngModel)]="nombre" name="nombre" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" [(ngModel)]="email" name="email" required>
+        </div>
+        <div class="mb-3">
+          <label for="celular" class="form-label">Celular</label>
+          <input type="tel" class="form-control" id="celular" [(ngModel)]="celular" name="celular" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg" [disabled]="enviando">
+          <span *ngIf="enviando">Procesando...</span>
+          <span *ngIf="!enviando">Comprar curso</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <button class="btn btn-outline-secondary" (click)="volverACursos()">Volver a la lista de cursos</button>
+  </div>
+</div> 

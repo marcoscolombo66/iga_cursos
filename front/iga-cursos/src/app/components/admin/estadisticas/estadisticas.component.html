@@ -1,0 +1,64 @@
+<div class="container mt-4">
+  <h1 class="mb-4">Panel de Administración - Estadísticas de Ventas</h1>
+
+  <div *ngIf="cargando" class="text-center">
+    <p>Cargando estadísticas...</p>
+  </div>
+
+  <div *ngIf="error" class="alert alert-danger">
+    {{ error }}
+  </div>
+
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <div class="card bg-primary text-white">
+        <div class="card-body">
+          <h5 class="card-title">Total de Ventas</h5>
+          <h2 class="display-4">{{ totalVentas }}</h2>
+          <p class="card-text">Cursos vendidos</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card bg-success text-white">
+        <div class="card-body">
+          <h5 class="card-title">Total de Ingresos</h5>
+          <h2 class="display-4">${{ totalIngresos }}</h2>
+          <p class="card-text">Pesos argentinos</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h5 class="mb-0">Detalle por curso</h5>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre del Curso</th>
+              <th>Unidades Vendidas</th>
+              <th>Ingresos Totales</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of estadisticas">
+              <td>{{ item.idCurso }}</td>
+              <td>{{ item.nombre }}</td>
+              <td>{{ item.total_compras }}</td>
+              <td>${{ item.total_ingresos }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <button class="btn btn-outline-secondary" (click)="volverACursos()">Volver a la tienda</button>
+  </div>
+</div> 

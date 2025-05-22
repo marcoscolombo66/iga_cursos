@@ -1,0 +1,41 @@
+/* Importar Bootstrap */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+/* Estilos globales para la aplicación */
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main.container {
+  flex: 1;
+}
+
+footer {
+  margin-top: auto;
+}
+
+/* Si la página es muy corta, añadimos margen para empujar el footer más abajo */
+@media (min-height: 900px) {
+  main.container {
+    min-height: 80vh;
+  }
+}
+
+main {
+  flex: 1;
+}
+
+.card {
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}

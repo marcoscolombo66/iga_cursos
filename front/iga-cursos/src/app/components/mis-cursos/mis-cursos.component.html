@@ -1,0 +1,45 @@
+<div class="container mt-4">
+  <h1 class="mb-4">Mis Cursos Comprados</h1>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">Consulta tus cursos</h5>
+      <div class="row g-3 align-items-end">
+        <div class="col-md-8">
+          <label for="email" class="form-label">Email con el que realizaste la compra</label>
+          <input type="email" class="form-control" id="email" [(ngModel)]="email" placeholder="tucorreo@ejemplo.com">
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-primary w-100" (click)="consultarCursos()" [disabled]="cargando">
+            <span *ngIf="!cargando">Consultar</span>
+            <span *ngIf="cargando">Consultando...</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="error" class="alert alert-danger">
+    {{ error }}
+  </div>
+
+  <div *ngIf="compras.length > 0" class="row">
+    <div *ngFor="let compra of compras" class="col-md-4 mb-4">
+      <div class="card h-100">
+        <div class="card-header">
+          Comprado el {{ compra.fecha_compra | date:'dd/MM/yyyy' }}
+        </div>
+        <img [src]="compra.imagen" class="card-img-top" alt="{{ compra.nombre }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ compra.nombre }}</h5>
+          <p class="card-text">{{ compra.descripcion }}</p>
+          <p class="card-text"><strong>Precio: ${{ compra.precio }}</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <button class="btn btn-outline-secondary" (click)="volverACursos()">Volver a la lista de cursos</button>
+  </div>
+</div> 
