@@ -9,7 +9,7 @@
 ### Levantar el entorno con Docker
 1. Clona el repositorio:
 ```bash
-git clone https://github.com/igacursos/iga-cursos.git
+git clone https://github.com/marcoscolombo66/iga-cursos.git
 cd iga-cursos
 ```
 
