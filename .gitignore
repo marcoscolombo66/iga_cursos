@@ -6,3 +6,19 @@ images/
 /application/config/database.php
 /application/config/config.php
 docker/mysql/mysql-data/
+# Ignorar repositorio embebido (si decides no usar submódulos)
+front/iga-cursos/
+
+# Ignorar archivos de sesión de CodeIgniter
+system/sessions/
+system/sessions/*
+system/sessions/ci_session*
+
+# Ignorar datos de MySQL
+docker/mysql/mysql-data/
+
+# Otros archivos comunes a ignorar
+.env
+.DS_Store
+logs/
+*.log
