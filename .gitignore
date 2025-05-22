@@ -3,8 +3,7 @@ vendor
 .idea
 images/
 /images/
-/application/config/database.php
-/application/config/config.php
+
 docker/mysql/mysql-data/
 # Ignorar repositorio embebido (si decides no usar submódulos)
 front/iga-cursos/
