@@ -1,0 +1,23 @@
+/* Agrega Bootstrap al proyecto */
+@import "bootstrap/scss/bootstrap";
+
+/* Estilos personalizados */
+body {
+  font-family: 'Roboto', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+.card {
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+} 
