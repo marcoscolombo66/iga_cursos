@@ -6,7 +6,7 @@ images/
 
 docker/mysql/mysql-data/
 # Ignorar repositorio embebido (si decides no usar submódulos)
-front/iga-cursos/
+front/iga-cursos/node_modules
 
 # Ignorar archivos de sesión de CodeIgniter
 system/sessions/
